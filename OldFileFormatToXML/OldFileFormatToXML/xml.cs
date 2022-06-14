@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Xml;
 using System.IO;
 
@@ -156,8 +156,8 @@ namespace OldFileFormatToXML
             {
                 LineData = InputStream.ReadLine();
 
-                // if the LineData data is null, we could not find any line with P data and we are at the end
-                if (LineData == null)
+                // if LineData is EOF, we could not find any line with P data, throw a exception
+                if (LineData == Constants.OLD_FILE_FORMAT.EOF)
                 {
                     throw new Exception("Wrong formated file, could not find any start(P) data in the file that was part of the old file format");
                 }
@@ -194,9 +194,8 @@ namespace OldFileFormatToXML
             {
                 LineData = InputStream.ReadLine();
 
-                // if LineData is null, we could not find line with P data,
-                // thus no XML file can be created
-                if (LineData == null)
+                // if LineData is EOF, end loop, no more P data to create
+                if (LineData == Constants.OLD_FILE_FORMAT.EOF)
                 {
                     WeAreAtTheEndOfTheFile = true;
                 }
@@ -282,9 +281,9 @@ namespace OldFileFormatToXML
             do
             {
                 LineData = InputStream.ReadLine();
-                if (LineData == null)
+                if (LineData == Constants.OLD_FILE_FORMAT.EOF)
                 {
-                    // end of file has been reached
+                    // end of file has been reached, end loop
                     PrintOldFileFormatFDataInXMLEnd();
                     NotEndLoop = false;
                 }
