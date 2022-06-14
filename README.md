@@ -11,7 +11,7 @@ Find the project here [https://github.com/philip0000000/OldFileFormatToXML]
 
 ## Usage
 
-OldFileFormatToXML  Old file format file [Name of new XML file]
+OldFileFormatToXML  "Old file format file" [Name of new XML file]
 
 ## Options
 
