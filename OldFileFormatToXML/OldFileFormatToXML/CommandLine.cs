@@ -23,7 +23,7 @@ namespace OldFileFormatToXML
             }
 
             // Print help message
-            Console.WriteLine(Assembly.GetExecutingAssembly().GetName().Name + " " + version);
+            Console.WriteLine($"{Assembly.GetExecutingAssembly().GetName().Name} {version}");
             Console.WriteLine();
             Console.WriteLine(Strings.HELP_MSG);
         }
@@ -34,7 +34,7 @@ namespace OldFileFormatToXML
         /// <param name="args">Console input</param>
         /// <param name="InputFile">Name of input file</param>
         /// <param name="OutputFile">Name of output file</param>
-        public static void Parse(string[] args, ref string InputFile, ref string OutputFile)
+        public static void Parse(string[] args, out string InputFile, out string OutputFile)
         {
             if (args.Length == 1)
             {
