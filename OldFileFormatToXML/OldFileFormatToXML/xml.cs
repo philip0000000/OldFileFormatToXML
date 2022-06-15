@@ -83,7 +83,7 @@ namespace OldFileFormatToXML
         /// </summary>
         /// <param name="InputFile">old file format file</param>
         /// <param name="OutputFile">file name of the file that will get new XML format from InputFile</param>
-        public void ParseFile(ref string InputFile, ref string OutputFile)
+        public void ParseFile(string InputFile, string OutputFile)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace OldFileFormatToXML
                     throw new Exception("Wrong formated file, could not find any start(P) data in the file that was part of the old file format");
                 }
 
-                string DataMark = GetFromLineOldFileFormatDataMark(ref LineData);
+                string DataMark = GetFromLineOldFileFormatDataMark(in LineData);
                 switch (DataMark)
                 {
                     default:
@@ -201,7 +201,7 @@ namespace OldFileFormatToXML
                 }
                 else
                 {
-                    string DataMark = GetFromLineOldFileFormatDataMark(ref LineData);
+                    string DataMark = GetFromLineOldFileFormatDataMark(in LineData);
                     switch (DataMark)
                     {
                         case Constants.OLD_FILE_FORMAT.P_DATA_MARK:
@@ -233,7 +233,7 @@ namespace OldFileFormatToXML
                                 }
                                 else
                                 {
-                                    string DataMarkFromReturnValue = GetFromLineOldFileFormatDataMark(ref LineData);
+                                    string DataMarkFromReturnValue = GetFromLineOldFileFormatDataMark(in LineData);
 
                                     switch (DataMarkFromReturnValue)
                                     {
@@ -289,7 +289,7 @@ namespace OldFileFormatToXML
                 }
                 else
                 {
-                    DataMark = GetFromLineOldFileFormatDataMark(ref LineData);
+                    DataMark = GetFromLineOldFileFormatDataMark(in LineData);
                     switch (DataMark)
                     {
                         case Constants.OLD_FILE_FORMAT.P_DATA_MARK: // new P data
@@ -321,7 +321,7 @@ namespace OldFileFormatToXML
         /// Get the data mark(in the old file system marks) from the LineData and check if
         /// LineData has incorrect data mark or is empty, and increase respected error number.
         /// </summary>
-        string GetFromLineOldFileFormatDataMark(ref string LineData)
+        string GetFromLineOldFileFormatDataMark(in string LineData)
         {
             // check if LineData is not empty
             if (LineData.Length == 0)
@@ -416,8 +416,8 @@ namespace OldFileFormatToXML
                 OldFileFormatData.F.Name = string.Empty;
         }
 
-        // These 9 function use the data in OldFileFormatData structure to generate XML elements
-        // in output file, the output file is the parameter "OutputFile" in the function ParseFile.
+        // These 9 function use the data in InputStream to generate XML elements in OutputStream,
+        // data in InputStream is interpreted as old file format data.
         void PrintDocType()
         {
             OutputStream.WriteStartDocument(true); // add 1st the 'standalone' directive, so to ignore DTD
