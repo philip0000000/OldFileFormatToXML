@@ -22,7 +22,7 @@ namespace OldFileFormatToXML
             }
 
             // Parse command line arguments
-            CommandLine.Parse(args, ref InputFile, ref OutputFile);
+            CommandLine.Parse(args, out InputFile, out OutputFile);
 
             // Create the xml object were all the parseing is happening from old file format to XML
             XmlParse xml = new XmlParse();
