@@ -28,7 +28,7 @@ namespace OldFileFormatToXML
             XmlParse xml = new XmlParse();
 
             // Parse the old file format to XML from a old file that exist to a new file that is being created
-            xml.ParseFile(ref InputFile, ref OutputFile);
+            xml.ParseFile(InputFile, OutputFile);
             // Print error that occured when parsing the old file format to XML
             CommandLine.PrintErrors(xml.NumberOfEmptyLines, xml.NumberOfUnresolvedLines, xml.NumberOfLineConflicts, InputFile);
 
