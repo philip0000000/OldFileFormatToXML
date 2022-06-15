@@ -358,7 +358,7 @@ namespace OldFileFormatToXML
             return Constants.OLD_FILE_FORMAT.DATA_MARK_ERROR;
         }
 
-        // These 4 function save the data from the referenced string parameter in to OldFileFormatData structure
+        // These 4 function save the data from the referenced string parameter into OldFileFormatData structure
         void SaveOldFileFormatPData(ref string LineData)
         {
             // Split string and insert to P struct of OldFileFormatData. If value dose not exist, insert empty string.
