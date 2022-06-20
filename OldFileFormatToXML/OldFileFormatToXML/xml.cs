@@ -226,7 +226,7 @@ namespace OldFileFormatToXML
 
                                 LineData = CreateFElementInXML();
 
-                                if (LineData == Constants.OLD_FILE_FORMAT.EOF) // Check if EOF. if yes, end this loop and main loop
+                                if (LineData == Constants.OLD_FILE_FORMAT.EOF) // Check if EOF. If yes, end this loop and main loop
                                 {
                                     EndLoop = true;
                                     WeAreAtTheEndOfTheFile = true;
@@ -266,10 +266,10 @@ namespace OldFileFormatToXML
             PrintOldFileFormatPDataInXMLEnd();
         }
         /// <summary>
-        /// Create the F data in old file format in XML, return data when EOF, P data or F data has been found.
+        /// Create the F data in old file format in XML, return data when end-of-file(EOF), P data or F data has been found.
         /// </summary>
         /// <returns>
-        /// Data that dose not belong to the F data element, can be end-of-file(EOF), P data or F data.
+        /// Data that dose not belong to the F data element, can be EOF, P data or F data.
         /// </returns>
         string CreateFElementInXML()
         {
