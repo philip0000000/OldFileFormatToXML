@@ -226,7 +226,7 @@ namespace OldFileFormatToXML
 
                                 LineData = CreateFElementInXML();
 
-                                if (LineData == string.Empty) // Check if empty string. if yes, end this loop and main loop(got EOF)
+                                if (LineData == Constants.OLD_FILE_FORMAT.EOF) // Check if EOF. if yes, end this loop and main loop
                                 {
                                     EndLoop = true;
                                     WeAreAtTheEndOfTheFile = true;
@@ -269,11 +269,11 @@ namespace OldFileFormatToXML
         /// Create the F data in old file format in XML, return data when EOF, P data or F data has been found.
         /// </summary>
         /// <returns>
-        /// Data that dose not belong to the F data element, can be EOF, P data or F data.
+        /// Data that dose not belong to the F data element, can be end-of-file(EOF), P data or F data.
         /// </returns>
         string CreateFElementInXML()
         {
-            string returnValue = string.Empty; // default value is empty string, which also means end of file
+            string returnValue = Constants.OLD_FILE_FORMAT.EOF; // default value is EOF of old data format
             string LineData;
             string DataMark;
             bool NotEndLoop = true;
