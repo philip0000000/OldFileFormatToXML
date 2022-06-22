@@ -159,7 +159,7 @@ namespace OldFileFormatToXML
                 // if LineData is EOF, we could not find any line with P data, throw a exception
                 if (LineData == Constants.OLD_FILE_FORMAT.EOF)
                 {
-                    throw new Exception("Wrong formated file, could not find any start(P) data in the file that was part of the old file format");
+                    throw new Exception("ERROR! Wrong formatted file, could not find any start(P) data in the file that was part of the old file format");
                 }
 
                 string DataMark = GetFromLineOldFileFormatDataMark(in LineData);
@@ -429,7 +429,9 @@ namespace OldFileFormatToXML
         }
         void PrintXMLEndElement()
         {
+            // Write the close tag for the root element and flush buffer
             OutputStream.WriteEndElement();
+            OutputStream.Flush();
         }
         void PrintOldFileFormatPDataInXMLStart()
         {
@@ -478,9 +480,7 @@ namespace OldFileFormatToXML
         }
         void PrintOldFileFormatFDataInXMLEnd()
         {
-            // Write the close tag for the root element and flush buffer
             OutputStream.WriteEndElement();
-            OutputStream.Flush();
         }
     }
 }

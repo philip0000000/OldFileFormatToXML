@@ -4,9 +4,6 @@ namespace OldFileFormatToXML
 {
     class Program
     {
-        static string InputFile;
-        static string OutputFile;
-
         /// <summary>
         /// Main entry point of OldFileFormatToXML
         /// Parses arguments and runs operations
@@ -22,7 +19,7 @@ namespace OldFileFormatToXML
             }
 
             // Parse command line arguments
-            CommandLine.Parse(args, out InputFile, out OutputFile);
+            CommandLine.Parse(args, out string InputFile, out string OutputFile);
 
             // Create the xml object were all the parseing is happening from old file format to XML
             XmlParse xml = new XmlParse();
