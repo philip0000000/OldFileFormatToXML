@@ -16,8 +16,3 @@ OldFileFormatToXML  "Old file format file" [Name of new XML file]
 ## Options
 
 [Name of new XML file]    If no XML file name is provided, the old file name will be used with XML filename extension.
-
-## License
-
-License under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-
